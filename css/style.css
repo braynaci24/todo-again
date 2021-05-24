@@ -1,12 +1,14 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
 .main {
     display: flex;
-    height: 100vh;
+    height: 80vh;
     align-items: center;
     justify-content: center;
 }
+
 .card {
     padding: 40px 40px;
     border: 1px solid rgb(13, 196, 13);
@@ -14,11 +16,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: auto;
 }
+
 .card-title {
     text-align: center;
-    color:rgb(13, 196, 13);
+    color: rgb(13, 196, 13);
 }
+
 .todo-info {
     width: 300px;
     height: 40px;
@@ -26,16 +31,19 @@ body {
     border-radius: 3px;
     padding-left: 7px;
 }
+
 .todo-info:focus {
     outline: none;
 }
-.send-button {
+
+.button-style {
     background-color: rgb(13, 196, 13);
     border: 1px solid rgb(13, 196, 13);
     border-radius: 3px;
     color: #fff;
     height: 40px;
 }
+
 .todo {
     display: flex;
     justify-content: space-between;
@@ -50,16 +58,68 @@ body {
     font-size: 18px;
 
 }
+
 .todo:hover {
     background-color: white;
     color: rgb(11, 172, 11);
     cursor: pointer;
 }
-.todo:hover .trash{
+
+.todo:hover .trash {
     color: rgb(177, 43, 43);
     cursor: pointer;
 }
-@media (max-width: 460px){
+.position {
+    position: relative;
+}
+.favorites-container-title {
+    padding: 10px;
+}
+.favorites-box {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(11, 172, 11);
+    align-items: center;
+    padding: 10px 10px;
+    margin: 0 auto;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    
+}
+.favorites-container {
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid rgb(11, 172, 11);
+    border-radius: 5px;
+   text-align: center;
+   position: absolute;
+   top: 50px;
+   left: 480px;
+   z-index: 10;
+   overflow: auto;
+   display: none;
+}
+.cross {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 40px;
+    color: rgb(214, 16, 16);
+    cursor: pointer;
+}
+
+.trash-2 {
+    cursor: pointer;
+    color: rgb(185, 65, 65);
+}
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 50px;
+}
+@media (max-width: 460px) {
 
     .todo {
         width: 302px;
