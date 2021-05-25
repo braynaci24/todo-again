@@ -43,6 +43,9 @@ body {
     color: #fff;
     height: 40px;
 }
+.send-button {
+    width: 50px ;
+}
 
 .todo {
     display: flex;
