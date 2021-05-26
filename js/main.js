@@ -5,7 +5,9 @@ $(document).ready(function () {
 
     function createHistory(data){
         $('.history-container-append').html('')
-        $('.history-container-append').append(`<div class="history-box">${data}<i class="fas fa-trash-alt trash-2"></i></div>`)
+        for(let i = 0; i < data.length; i++ ){
+            $('.history-container-append').append(`<div class="history-box">${data[i]}<i class="fas fa-trash-alt trash-2"></i></div>`)
+        }
     }
 
     for(let i = 0; i < history.length; i++ ){
@@ -95,6 +97,7 @@ $(document).ready(function () {
                 searchArray.push(item)
             }
         })
+
         createHistory(searchArray)
     })
    
