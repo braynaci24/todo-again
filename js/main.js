@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     for(let i = 0; i < history.length; i++ ){
 
-        $('.history-container').append(` <div class="history-box">${history[i]}<i class="fas fa-trash-alt trash-2"></i></div>`)
+        $('.history-container-append').append(` <div class="history-box">${history[i]}<i class="fas fa-trash-alt trash-2"></i></div>`)
     }
     for(let i = 0; i < todoData.length; i++ ){
 
@@ -54,6 +54,7 @@ $(document).ready(function () {
         history.push(starText);
         localStorage.setItem('history', JSON.stringify(history));
     })
+
     $('body').on('click', '.trash-2', function(){
         Swal.fire({
             title: 'Favorilerden silmek istediğinden emin misin ?',
@@ -69,10 +70,31 @@ $(document).ready(function () {
             } 
           })
     })
+
     $('.history-open-button').click(function(){
         $('.history-container').show();
     })
+
     $('.cross').click(function(){
         $('.history-container').hide();
     })
+
+    function createHistory(data){
+        $('.history-container-append').html('')
+        $('.history-container-append').append(`<div class="history-box">${data}<i class="fas fa-trash-alt trash-2"></i></div>`)
+    }
+
+    $('.search-button').click(function(){
+        let searchArray = []
+        let searchInputVal = $('.search-input').val();
+
+        history.filter(function(item){
+            if(item == searchInputVal){
+                searchArray.push(item)
+            }
+        })
+        createHistory(searchArray)
+    })
+
+   
 })
