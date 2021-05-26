@@ -1,25 +1,24 @@
 $(document).ready(function () {
 
     let todoData = JSON.parse(localStorage.getItem('todo')) || []
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || []
+    let history = JSON.parse(localStorage.getItem('history')) || []
 
-    for(let i = 0; i < favorites.length; i++ ){
+    for(let i = 0; i < history.length; i++ ){
 
-        $('.favorites-container').append(` <div class="favorites-box">${favorites[i]}<i class="fas fa-trash-alt trash-2"></i></div>`)
+        $('.history-container').append(` <div class="history-box">${history[i]}<i class="fas fa-trash-alt trash-2"></i></div>`)
     }
     for(let i = 0; i < todoData.length; i++ ){
 
-        $('.todo-list').append(` <div class="todo"><span class="todo-name">${todoData[i]}</span><i class="fas fa-star star"></i><i class="fas fa-trash-alt trash"></i></div>`)
+        $('.todo-list').append(` <div class="todo"><span class="todo-name">${todoData[i]}</span><i class="fas fa-history history"></i><i class="fas fa-trash-alt trash"></i></div>`)
     }
 
     $('.send-button').click(function () {
         let inputVal = $('.todo-info').val();
-       
 
         if(inputVal.length >= 4){
             todoData.push(inputVal);
             localStorage.setItem('todo', JSON.stringify(todoData));
-            $('.todo-list').append(`<div class="todo"><span class="todo-name">${inputVal}</span><i class="fas fa-star star"></i><i class="fas fa-trash-alt trash"></i></div>`)
+            $('.todo-list').append(`<div class="todo"><span class="todo-name">${inputVal}</span><i class="fas fa-history history"></i><i class="fas fa-trash-alt trash"></i></div>`)
             $('.todo-info').val("");
 
         }else {
@@ -47,13 +46,13 @@ $(document).ready(function () {
         
     })
 
-    $('body').on('click', '.star', function(){
+    $('body').on('click', '.history', function(){
         $(this).css('color','yellow')
         let starText = $(this).parent().text();
         $(this).remove();
-        $('.favorites-container').append(` <div class="favorites-box">${starText}<i class="fas fa-trash-alt trash-2"></i></div>`)
-        favorites.push(starText);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
+        $('.history-container').append(` <div class="history-box">${starText}<i class="fas fa-trash-alt trash-2"></i></div>`)
+        history.push(starText);
+        localStorage.setItem('history', JSON.stringify(history));
     })
     $('body').on('click', '.trash-2', function(){
         Swal.fire({
@@ -63,17 +62,17 @@ $(document).ready(function () {
           }).then((result) => {
             if (result.isConfirmed) {
                 let favText = $(this).parent().text();
-                let favInd = favorites.indexOf(favText);
-                favorites.splice(favInd, 1)
-                localStorage.setItem('favorites', JSON.stringify(favorites))
+                let favInd = history.indexOf(favText);
+                history.splice(favInd, 1)
+                localStorage.setItem('history', JSON.stringify(history))
                 $(this).parent().remove();
             } 
           })
     })
-    $('.favorites-open-button').click(function(){
-        $('.favorites-container').show();
+    $('.history-open-button').click(function(){
+        $('.history-container').show();
     })
     $('.cross').click(function(){
-        $('.favorites-container').hide();
+        $('.history-container').hide();
     })
 })

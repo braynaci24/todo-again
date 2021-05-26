@@ -74,10 +74,10 @@ body {
 .position {
     position: relative;
 }
-.favorites-container-title {
+.history-container-title {
     padding: 10px;
 }
-.favorites-box {
+.history-box {
     width: 400px;
     display: flex;
     justify-content: space-between;
@@ -89,7 +89,7 @@ body {
     margin-bottom: 20px;
     color: white;
 }
-.favorites-container {
+.history-container {
     width: 600px;
     height: 500px;
     background-color: #fff;
@@ -115,6 +115,9 @@ body {
 .trash-2 {
     cursor: pointer;
     color: rgb(185, 65, 65);
+}
+.history {
+    padding-left: 5px;
 }
 .button-container{
     display: flex;
