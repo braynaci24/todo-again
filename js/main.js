@@ -3,6 +3,11 @@ $(document).ready(function () {
     let todoData = JSON.parse(localStorage.getItem('todo')) || []
     let history = JSON.parse(localStorage.getItem('history')) || []
 
+    function createHistory(data){
+        $('.history-container-append').html('')
+        $('.history-container-append').append(`<div class="history-box">${data}<i class="fas fa-trash-alt trash-2"></i></div>`)
+    }
+
     for(let i = 0; i < history.length; i++ ){
 
         $('.history-container-append').append(` <div class="history-box">${history[i]}<i class="fas fa-trash-alt trash-2"></i></div>`)
@@ -79,10 +84,7 @@ $(document).ready(function () {
         $('.history-container').hide();
     })
 
-    function createHistory(data){
-        $('.history-container-append').html('')
-        $('.history-container-append').append(`<div class="history-box">${data}<i class="fas fa-trash-alt trash-2"></i></div>`)
-    }
+   
 
     $('.search-button').click(function(){
         let searchArray = []
@@ -95,6 +97,5 @@ $(document).ready(function () {
         })
         createHistory(searchArray)
     })
-
    
 })

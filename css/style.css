@@ -124,6 +124,17 @@ body {
     justify-content: flex-end;
     margin: 20px 50px;
 }
+.search-button {
+    width: 70px;
+    height: 30px;
+}
+.search-input{ 
+    width: 300px;
+    border: 1px solid rgb(11, 172, 11);
+}
+.search-input:focus {
+    outline: none;
+}
 @media (max-width: 460px) {
 
     .todo {
